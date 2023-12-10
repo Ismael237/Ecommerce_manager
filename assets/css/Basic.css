@@ -1,0 +1,319 @@
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont.ttf");
+    font-weight: bold;
+}
+
+:root {
+    /* hex Color styles */
+    --primary-color: #7C6AA6;
+    --primary-color-100: #B0A6CA;
+    --secondary-color-900: #85807D;
+    --secondary-color-800: #9B9692;
+    --secondary-color-700: #B2ABA7;
+    --secondary-color-600: #C8C1BC;
+    --secondary-color: #DED6D1;
+    --secondary-color-100: #EBE6E3;
+    --neutral-color-900: #0D0B14;
+    --neutral-color: #151322;
+    --neutral-color-400: #2C2B38;
+    --neutral-color-300: #44424E;
+    --neutral-color-200: #5B5A64;
+    --neutral-color-100: #73717A;
+    
+    --primary-color-rgb: 124, 106, 166;
+    --secondary-color-rgb: 222, 214, 209;
+    --neutral-color-rgb: 21, 19, 34;
+    
+    --gray-color: rgba(var(--neutral-color-rgb), 0.1);
+}
+
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter";
+    color: var(--neutral-color);
+    font-variation-settings: "wght" 400;
+    background-color: var(--secondary-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    height: 100Vh;
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    max-width: 246px;
+    background-color: var(--neutral-color);
+    padding: 20px;
+}
+
+.nav-content {
+    height: min-content;
+}
+
+.logo{
+    display: flex;
+    margin-bottom: 32px;
+    gap: 12px;
+    padding: 8px 14px;
+}
+
+.logo span{
+    display: block;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--secondary-color-100);
+}
+
+.nav-item-list {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.nav-item-list li a{
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+    font-variation-settings: "wght" 500;
+    text-decoration: none;
+    font-size: 16px;
+    gap: 12px;
+    height: 44px;
+}
+
+.nav-item-list li a:hover{
+    background-color: rgba(38, 39, 39, 0.5);
+}
+
+.nav-item-list li a:active{
+    background-color: rgba(38, 39, 39, 0.8);
+}
+
+.nav-item-list li a.active{
+    background-color: #262727;
+}
+
+.btn {
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    font-family: "Inter";
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.btn-primary{
+    border: 0px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline{
+    border: 1px solid var(--gray-color);
+    background-color: transparent;
+    color: rgba(var(--neutral-color-rgb), 0.8) ;
+}
+
+.btn-outline:hover{
+    background-color: rgba(var(--neutral-color-rgb), 0.2);
+}
+
+.btn-outline:active{
+    background-color: rgba(var(--neutral-color-rgb), 0.3);
+}
+
+.btn-bad{
+    border: 0px;
+    background-color: var(--gray-color);
+    color: var(--primary-color);
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid true;
+    gap: 8px;
+}
+
+.input-group label{
+    font-size: 14px;
+    color: var(--neutral-color);
+    font-family: "Inter";
+}
+
+.input-group .field input{
+    height: 44px;
+    width: 100%;
+    min-width: 400px;
+    border: 1px solid var(--gray-color);
+    padding-left: 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: none;
+    color: var(--neutral-color);
+    font-variation-settings: "wght" 400;
+    font-family: "Inter";
+}
+
+.input-group .field input:disabled {
+    color: var(--gray-color);
+}
+
+.input-group .field select{
+    height: 44px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--gray-color);
+    padding: 0 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--neutral-color);
+    font-family: "Inter";
+    font-variation-settings: "wght" 400;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%);
+    background-color: rgb(255, 255, 255);
+    color: #2a2424;
+    border-radius: 4px;
+}
+
+.modal-header{
+    display: flex;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.modal-header .title{
+    font-size: 24px;
+    font-variation-settings: "wght" 700;
+}
+
+.modal-body {
+    padding: 16px 24px;
+}
+
+.modal-body form{
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid var(--gray-color);
+    padding: 16px 24px;
+    gap: 16px;
+}
+
+.right_page{
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    width: calc(100% - 246px);
+    position: absolute;
+    right: 0;
+}
+
+.right_page .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.right_page .top .title{
+    display: inline-block;
+    font-variation-settings: "wght" 700;
+    font-size: 32px;
+}
+
+.right_page .top .right-top{
+    display: flex;
+    gap: 12px;
+}
+
+.dynamic_table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.dynamic_table table th, td {
+    padding: 12px 16px;
+}
+
+.dynamic_table table td.action {
+    display: flex;
+    gap: 16px;
+}
+
+/* .dynamic_table table td.is_numeric {
+    text-align: right;
+} */
+
+.dynamic_table table td.date {
+    text-transform: capitalize;
+}
+
+.dynamic_table table thead {
+    background-color: rgba(var(--neutral-color-rgb), 0.5);
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dynamic_table table thead tr {
+    text-align: left;
+}
+
+.dynamic_table table tbody tr {
+    border-bottom: 1px solid rgba(var(--neutral-color-rgb), 0.1);
+}
+.dynamic_table table tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.dynamic_table table tbody tr:nth-child(even) {
+   background-color: rgba(var(--neutral-color-rgb), 0.2);
+}
+
+.no_data {
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 16px;
+}
