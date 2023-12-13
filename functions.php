@@ -9,7 +9,14 @@ function getProducts($db) {
 
 function getOrder($db) {
     
-    $sql = "SELECT o.id AS id, p.name AS product_name, o.order_date, c.name AS customer_name
+    $sql = "SELECT 
+            o.id AS id, 
+            p.name AS product_name, 
+            o.order_date, 
+            c.name AS customer_name,
+            o.quantity,
+            p.id AS product_id, 
+            c.id AS customer_id
             FROM Order_Table o
             JOIN Product p ON p.id = o.product_id
             JOIN Customer c ON c.id = o.customer_id";
@@ -38,9 +45,11 @@ function getDeliveries($db) {
     $sql = "SELECT d.id AS id, 
             p.name AS product_name, 
             s.name AS supplier_name, 
-            p.quantity AS product_quantity, 
+            p.quantity AS quantity, 
             d.delivery_status,
-            d.delivery_date 
+            d.delivery_date,
+            p.id AS product_id,
+            s.id AS supplier_id
             FROM Delivery d
             JOIN Product p ON p.id = d.product_id
             JOIN Supplier s ON s.id = d.supplier_id";

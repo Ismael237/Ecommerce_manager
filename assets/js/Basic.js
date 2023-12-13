@@ -108,10 +108,10 @@ function createModalBody(type, input_list, page_name, data_to_modify = [], to_de
     input_list.forEach((input) => {
         show(input.name_type, form, input.label, input.name, input.type, input.select_input_id_temp);
     });
-    
+
     form.method = "post";
     form.action = action_page;
-    
+
     if (type === "update") {
         const input = document.createElement("input");
         input.name = page_name + "_id";
@@ -126,7 +126,7 @@ function createModalBody(type, input_list, page_name, data_to_modify = [], to_de
                         break;
                     }
                 }
-            }else{
+            } else {
                 form[i].value = data_to_modify[i + 1];
             }
         }
@@ -324,31 +324,43 @@ update_buttons.forEach((update_button) => {
             case "customer":
                 modal_title = "Modifier un Client";
                 data_to_modify = [
-                    ...data_to_modify, 
-                    object_data.name, 
-                    object_data.address, 
+                    ...data_to_modify,
+                    object_data.name,
+                    object_data.address,
                     object_data.phone_number
                 ];
                 break;
             case "order":
                 modal_title = "Modifier un Achat";
+                data_to_modify = [
+                    ...data_to_modify,
+                    object_data.product_id,
+                    object_data.customer_id,
+                    object_data.quantity
+                ];
                 break;
             case "delivery":
+                data_to_modify = [
+                    ...data_to_modify,
+                    object_data.product_id,
+                    object_data.supplier_id,
+                    object_data.quantity
+                ];
                 modal_title = "Modifier une commande";
                 break;
             case "supplier":
                 modal_title = "Modifier un fournisseur";
                 data_to_modify = [
-                    ...data_to_modify, 
-                    object_data.name, 
-                    object_data.address, 
+                    ...data_to_modify,
+                    object_data.name,
+                    object_data.address,
                     object_data.phone_number
                 ];
                 break;
             case "category":
                 modal_title = "Modifier une categories";
                 data_to_modify = [
-                    ...data_to_modify, 
+                    ...data_to_modify,
                     object_data.name,
                 ];
                 break;

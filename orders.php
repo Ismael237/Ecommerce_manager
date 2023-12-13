@@ -6,7 +6,15 @@ include "db_connection.php";
 $css_path = "";
 $title = "Achat";
 $name = "order";
-$table_header = ["Id", "Nom du produit", "Date d'achat", "Nom du client"];
+$table_header = [
+    "Id", 
+    "Nom du produit", 
+    "Date d'achat", 
+    "Nom du client", 
+    "Quantité",
+    "Id Client",
+    "Id Fournisseur"
+];
 $data = getOrder($db);
 $products = getProducts($db);
 $customers = getCustomers($db);

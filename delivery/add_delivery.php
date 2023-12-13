@@ -5,7 +5,7 @@
         $product_id = htmlspecialchars($_POST["product_id"]);
         $supplier_id = htmlspecialchars($_POST["supplier_id"]);
         $quantity = htmlspecialchars($_POST["quantity"]);
-        $delivery_status = "En attente";
+        $delivery_status = "Termine";
         
         $add_delivery = "INSERT INTO Delivery (product_id, supplier_id, quantity, delivery_status, delivery_date) VALUES (?, ?, ?, ?, NOW())";
         $response = $db->prepare($add_delivery);
