@@ -1,5 +1,5 @@
 <?php
-    require "./dbConnection.php";
+    require "db_connection.php";
 
     if(isset($_POST["name"]) && isset($_POST["description"]) && isset($_POST["unit_price"]) && isset($_POST["quantity"]) && isset($_POST["category_id"])){
         $name = htmlspecialchars($_POST["name"]);

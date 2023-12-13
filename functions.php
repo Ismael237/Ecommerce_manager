@@ -1,12 +1,19 @@
 <?php
 function getProducts($db) {
-    $sql = "SELECT name, description, unit_price, quantity, category_id FROM Product";
+    $sql = "SELECT p.id, p.name, p.description, p.unit_price, p.quantity, c.name AS category_name, c.id AS category_id 
+            FROM Product p
+            JOIN Category c ON p.category_id = c.id";
     $response = $db->query($sql);
     return $response->fetchAll(PDO::FETCH_ASSOC);;
 }
 
 function getOrder($db) {
-    $sql = "SELECT * FROM Order_Table";
+    
+    $sql = "SELECT o.id AS id, p.name AS product_name, o.order_date, c.name AS customer_name
+            FROM Order_Table o
+            JOIN Product p ON p.id = o.product_id
+            JOIN Customer c ON c.id = o.customer_id";
+
     $response = $db->query($sql);
     return $response->fetchAll(PDO::FETCH_ASSOC);;
 }
@@ -23,17 +30,25 @@ function getSuppliers($db) {
 }
 
 function getCustomers($db) {
-    $sql = "SELECT name, address, phone_number FROM Customer";
+    $sql = "SELECT id, name, address, phone_number FROM Customer";
     $response = $db->query($sql);
     return $response->fetchAll(PDO::FETCH_ASSOC);;
 }
 function getDeliveries($db) {
-    $sql = "SELECT * FROM Customer";
+    $sql = "SELECT d.id AS id, 
+            p.name AS product_name, 
+            s.name AS supplier_name, 
+            p.quantity AS product_quantity, 
+            d.delivery_status,
+            d.delivery_date 
+            FROM Delivery d
+            JOIN Product p ON p.id = d.product_id
+            JOIN Supplier s ON s.id = d.supplier_id";
     $response = $db->query($sql);
     return $response->fetchAll(PDO::FETCH_ASSOC);;
 }
 
-function generateTable($data, $tableStructure)
+function generateTable($data, $tableStructure, $name)
 {
     $is_numeric = "";
     array_push($tableStructure, "Action");
@@ -59,8 +74,8 @@ function generateTable($data, $tableStructure)
             echo '<td class="'.$is_numeric.'">' . $value . '</td>';
         }
         echo '<td class="action">
-            <button class="btn btn-outline">Modifier</button>
-            <button class="btn btn-outline">Supprimer</button>
+            <button data-name="'. $name .'" data-'. $name .'="'. http_build_query($row) .'" class="btn btn-outline btn-update">Modifier</button>
+            <button data-name="'. $name .'" data-'. $name .'="'. http_build_query($row) .'" class="btn btn-outline btn-delete">Supprimer</button>
         </td>';
         echo '</tr>';
     }

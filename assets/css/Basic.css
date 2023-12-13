@@ -153,7 +153,7 @@ nav {
     font-family: "Inter";
 }
 
-.input-group .field input{
+.input-group .field input, select, textarea{
     height: 44px;
     width: 100%;
     min-width: 400px;
@@ -161,7 +161,6 @@ nav {
     padding-left: 16px;
     border-radius: 4px;
     font-size: 16px;
-    background-color: none;
     color: var(--neutral-color);
     font-variation-settings: "wght" 400;
     font-family: "Inter";
@@ -172,17 +171,11 @@ nav {
 }
 
 .input-group .field select{
-    height: 44px;
-    width: 100%;
     max-width: 400px;
-    border: 1px solid var(--gray-color);
-    padding: 0 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: transparent;
-    color: var(--neutral-color);
-    font-family: "Inter";
-    font-variation-settings: "wght" 400;
+}
+
+.input-group .field textarea{
+    min-height: 80px;
 }
 
 .modal {
@@ -228,6 +221,14 @@ nav {
     flex-direction: column;
 }
 
+.modal-body p{
+    margin-bottom: 12px;
+}
+
+.modal-body span.strong{
+    font-variation-settings: "wght" 500;
+}
+
 .modal-footer {
     display: flex;
     justify-content: flex-end;
@@ -262,6 +263,17 @@ nav {
 .right_page .top .right-top{
     display: flex;
     gap: 12px;
+}
+
+.right_page .top .right-top select{
+    display: flex;
+    gap: 12px;
+    max-width: 200px;
+    min-width: 150px;
+}
+
+.dynamic_table {
+    overflow-y: auto;
 }
 
 .dynamic_table table {

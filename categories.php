@@ -5,6 +5,7 @@ include "db_connection.php";
 
 $css_path = "";
 $title = "Catégorie";
+$name = "category";
 $table_header = ["id", "Nom"];
 $data = getCategories($db);
 

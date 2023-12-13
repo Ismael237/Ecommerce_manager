@@ -13,11 +13,11 @@ ob_start();
                     echo $select;
                 endif;
             ?>
-            <button id="add" class="btn btn-primary">Ajouter un <?php echo $title ?></button>
+            <button id="add" data-name="<?php echo $name ?>" class="btn btn-primary">Ajouter un <?php echo $title ?></button>
         </div>
     </div>
     <?php 
-        generateTable($data, $table_header);
+        generateTable($data, $table_header, $name);
     ?>
 </div>
 

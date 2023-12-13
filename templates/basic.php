@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/Basic.css">
     <link rel="stylesheet" href=<?php $css_path ?>>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <title><?php echo $title ?></title>
 </head>
 
@@ -20,12 +21,6 @@
                     <span>StockEasy</span>
                 </div>
                 <ul class="nav-item-list">
-                    <!-- <li>
-                        <a class="btn" href="/">
-                            <img src="../assets/img/icons/House_02.png" alt="">
-                            Accueil
-                        </a>
-                    </li> -->
                     <li>
                         <a class="btn active" href="products.php">
                             <img src="../assets/img/icons/Box.png" alt="">
@@ -39,18 +34,6 @@
                         </a>
                     </li>
                     <li>
-                        <a class="btn" href="orders.php">
-                            <img src="../assets/img/icons/Shopping_Cart_02.png" alt="">
-                            Achats
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn" href="deliveries.php">
-                            <img src="../assets/img/icons/Delivery.png" alt="">
-                            Commandes
-                        </a>
-                    </li>
-                    <li>
                         <a class="btn" href="suppliers.php">
                             <img src="../assets/img/icons/Shopping_Bag_01.png" alt="">
                             Fournisseurs
@@ -60,6 +43,18 @@
                         <a class="btn" href="categories.php">
                             <img src="../assets/img/icons/Tag.png" alt="">
                             Catégories
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" href="orders.php">
+                            <img src="../assets/img/icons/Shopping_Cart_02.png" alt="">
+                            Achats
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" href="deliveries.php">
+                            <img src="../assets/img/icons/Delivery.png" alt="">
+                            Commandes
                         </a>
                     </li>
                 </ul>
@@ -92,16 +87,7 @@
         <template id="select-group-temp">
             <div class="input-group">
                 <label for="input"></label>
-                <div class="field">
-                    <select name="Filter" id="category_name_selector">
-                        <option data-product="" selected disabled>Filtrer par...</option>
-                        <?php
-                        foreach ($categories as $category) {
-                        ?>
-                            <option value="<?php echo $category["name"] ?>"><?php echo $category["name"] ?></option>";
-                        <?php } ?>
-                    </select>
-                </div>
+                <div class="field"></div>
             </div>
         </template>
         <template id="select-category-temp">
@@ -111,6 +97,36 @@
                 foreach ($categories as $category) {
                 ?>
                     <option value="<?php echo $category["id"] ?>"><?php echo $category["name"] ?></option>";
+                <?php } ?>
+            </select>
+        </template>
+        <template id="select-customer-temp">
+            <select name="customer_id">
+                <option selected disabled>Sélectionner...</option>
+                <?php
+                foreach ($customers as $customer) {
+                ?>
+                    <option value="<?php echo $customer["id"] ?>"><?php echo $customer["name"] ?></option>";
+                <?php } ?>
+            </select>
+        </template>
+        <template id="select-product-temp">
+            <select name="product_id">
+                <option selected disabled>Sélectionner...</option>
+                <?php
+                foreach ($products as $product) {
+                ?>
+                    <option value="<?php echo $product["id"] ?>"><?php echo $product["name"] ?></option>";
+                <?php } ?>
+            </select>
+        </template>
+        <template id="select-supplier-temp">
+            <select name="supplier_id">
+                <option selected disabled>Sélectionner...</option>
+                <?php
+                foreach ($suppliers as $supplier) {
+                ?>
+                    <option value="<?php echo $supplier["id"] ?>"><?php echo $supplier["name"] ?></option>";
                 <?php } ?>
             </select>
         </template>

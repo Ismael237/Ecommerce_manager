@@ -5,7 +5,10 @@ include "db_connection.php";
 
 $css_path = "";
 $title = "Commande";
-$table_header = ["Nom du produit", "nom du fournisseur", "Quantité", "Status","Date et heure"];
+$name = "delivery";
+$table_header = ["Id", "Nom du produit", "nom du fournisseur", "Quantité", "Status","Date et heure"];
 $data = getDeliveries($db);
+$products = getProducts($db);
+$suppliers = getSuppliers($db);
 
 include "templates/right_page.php";

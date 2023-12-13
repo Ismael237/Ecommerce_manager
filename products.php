@@ -5,7 +5,8 @@ include "db_connection.php";
 
 $css_path = "";
 $title = "Produit";
-$table_header = ["Nom", "Description", "Prix unitaire", "Quantité", "category_id"];
+$name = "product";
+$table_header = ["Id","Nom", "Description", "Prix unitaire", "Quantité", "Catégorie", "Catégorie Id"];
 $categories = getCategories($db);
 $data = getProducts($db);
 
